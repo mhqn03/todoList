@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+  margin: 10% 0 0;
+}
+.TaskList {
+  width: 500px;
+  margin: 0 auto;
+}
+.AddTask {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.AddTask input {
+  width: 90%;
+  outline: none;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #929191;
+  border-radius: 4px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #87e9e9;
+  border-radius: 50%;
+  /* margin: 0; */
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+.AddTask li {
+  padding: 5px;
+  background-color: #87e9e9;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.Filters {
+  border-bottom: 1px solid #929191;
+  margin-bottom: 10px;
+}
+.Filters ul {
+  display: flex;
+  justify-content: center;
+}
+.Filters li {
+  margin: 0 40px;
+  padding-bottom: 12px;
+}
+
+.Filters .active {
+  border-bottom: 1px solid #87e9e9;
+}
+li {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+li:hover {
+  opacity: 0.8;
+}
+li:active {
+  opacity: 1;
+}
+.completed {
+  text-decoration: line-through;
+}

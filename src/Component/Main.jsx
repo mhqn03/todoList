@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../index.css";
 import "./main.css";
+const filters = { all: "all", active: "active", completed: "completed" };
 function Main() {
-  const filters = { all: "all", active: "active", completed: "completed" };
   const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [filter, setFilter] = useState(filters.all);
@@ -78,7 +78,7 @@ function Main() {
         return tasks;
     }
   };
-  console.log(tasks);
+
   return (
     <div className="App">
       <div style={{ marginBottom: 20 }}>
@@ -108,23 +108,25 @@ function Main() {
             </li>
           </ul>
         </div>
-        { <div
-          className="AddTask"
-          style={{ listStyle: "none", marginBottom: 10 }}
-        >
-          <input
-            type="text"
-            ref={inputRef}
-            placeholder="Add details"
-            value={inputValue}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-          />
-          <li onClick={handleAddTask} className="addBtn">
-            Add
-          </li>
-        </div>}
-        
+        {
+          <div
+            className="AddTask"
+            style={{ listStyle: "none", marginBottom: 10 }}
+          >
+            <input
+              type="text"
+              ref={inputRef}
+              placeholder="Add details"
+              value={inputValue}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+            />
+            <li onClick={handleAddTask} className="addBtn">
+              Add
+            </li>
+          </div>
+        }
+
         <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {getFilteredTasks().map((task) => (
             <ul
@@ -148,7 +150,7 @@ function Main() {
               </div>
 
               <li onClick={() => handleDeleteTask(task.id)} className="btnDel">
-                Delete
+                <i className="bx bx-trash" />
               </li>
             </ul>
           ))}

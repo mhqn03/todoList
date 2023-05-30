@@ -40,8 +40,8 @@ input[type="checkbox"]::before {
   border-radius: 50%;
   /* margin: 0; */
   position: absolute;
-  top: 25%;
-  left: 25%;
+  top: 22%;
+  left: 23%;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -83,4 +83,27 @@ li:active {
 }
 .completed {
   text-decoration: line-through;
+}
+.btnDel {
+  color: #929191;
+  background-color: #ee9292;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+.TaskActions {
+  width: 100%;
+  position: relative;
+}
+.btnDelAll {
+  color: #929191;
+  background-color: #ee9292;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  top: 10px;
 }

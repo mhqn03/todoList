@@ -28,7 +28,7 @@ function Main() {
     }
   };
   const handleAddTask = () => {
-    if ((inputValue || '').trim() !== "") {
+    if ((inputValue || "").trim() !== "") {
       const newTask = {
         id: Date.now(),
         content: inputValue,
@@ -78,7 +78,7 @@ function Main() {
         return tasks;
     }
   };
-  const [check] = useState();
+  console.log(tasks);
   return (
     <div className="App">
       <div style={{ marginBottom: 20 }}>
@@ -108,8 +108,7 @@ function Main() {
             </li>
           </ul>
         </div>
-        {/* {} */}
-        <div
+        { <div
           className="AddTask"
           style={{ listStyle: "none", marginBottom: 10 }}
         >
@@ -124,10 +123,18 @@ function Main() {
           <li onClick={handleAddTask} className="addBtn">
             Add
           </li>
-        </div>
-        <ul>
+        </div>}
+        
+        <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {getFilteredTasks().map((task) => (
-            <ul key={task.id} style={{ listStyle: "none" }}>
+            <ul
+              key={task.id}
+              style={{
+                listStyle: "none",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
               <div style={{ display: "flex", gap: 10 }}>
                 <input
                   type="checkbox"
@@ -146,9 +153,9 @@ function Main() {
             </ul>
           ))}
         </ul>
-        {tasks.length > 0 && (
+        {tasks.length > 1 && (
           <div className="TaskActions" style={{ listStyle: "none" }}>
-            <li onClick={handleDeleteAllTasks} className="btnDel">
+            <li onClick={handleDeleteAllTasks} className="btnDelAll">
               Delete All
             </li>
           </div>

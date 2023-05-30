@@ -102,7 +102,7 @@ function Main() {
             </li>
             <li
               className={filter === filters.complete ? "active" : ""}
-              onClick={() => handleFilterChange(filters.complete)}
+              onClick={() => handleFilterChange(filters.completed)}
             >
               Completed
             </li>

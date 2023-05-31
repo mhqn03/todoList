@@ -78,7 +78,7 @@ function Main() {
         return tasks;
     }
   };
-
+  console.log(filter);
   return (
     <div className="App">
       <div style={{ marginBottom: 20 }}>
@@ -101,14 +101,14 @@ function Main() {
               Active
             </li>
             <li
-              className={filter === filters.complete ? "active" : ""}
+              className={filter === filters.completed ? "active" : ""}
               onClick={() => handleFilterChange(filters.completed)}
             >
               Completed
             </li>
           </ul>
         </div>
-        {
+        {filter === filters.completed ? null : (
           <div
             className="AddTask"
             style={{ listStyle: "none", marginBottom: 10 }}
@@ -125,7 +125,7 @@ function Main() {
               Add
             </li>
           </div>
-        }
+        )}
 
         <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {getFilteredTasks().map((task) => (
@@ -148,20 +148,26 @@ function Main() {
                   {task.content}
                 </span>
               </div>
-
-              <li onClick={() => handleDeleteTask(task.id)} className="btnDel">
-                <i className="bx bx-trash" />
-              </li>
+              {filter === filters.completed ? (
+                <li
+                  onClick={() => handleDeleteTask(task.id)}
+                  className="btnDel"
+                >
+                  <i className="bx bx-trash" />
+                </li>
+              ) : null}
             </ul>
           ))}
         </ul>
-        {tasks.length > 1 && (
-          <div className="TaskActions" style={{ listStyle: "none" }}>
-            <li onClick={handleDeleteAllTasks} className="btnDelAll">
-              Delete All
-            </li>
-          </div>
-        )}
+        {filter === filters.completed
+          ? tasks.length > 1 && (
+              <div className="TaskActions" style={{ listStyle: "none" }}>
+                <li onClick={handleDeleteAllTasks} className="btnDelAll">
+                  Delete All
+                </li>
+              </div>
+            )
+          : null}
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ function Main() {
   };
 
   const handleDeleteAllTasks = () => {
-    setTasks([...tasks.filter(task => !task.completed)]);
+    setTasks([...tasks.filter((task) => !task.completed)]);
   };
   console.log(tasks);
   const handleFilterChange = (newFilter) => {

@@ -78,7 +78,6 @@ function Main() {
         return tasks;
     }
   };
-  console.log(filter);
   return (
     <div className="App">
       <div style={{ marginBottom: 20 }}>

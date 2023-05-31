@@ -61,9 +61,9 @@ function Main() {
   };
 
   const handleDeleteAllTasks = () => {
-    setTasks([]);
+    setTasks([...tasks.filter(task => !task.completed)]);
   };
-
+  console.log(tasks);
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
   };
@@ -159,7 +159,7 @@ function Main() {
           ))}
         </ul>
         {filter === filters.completed
-          ? tasks.length > 1 && (
+          ? tasks.filter((task) => task.completed).length > 1 && (
               <div className="TaskActions" style={{ listStyle: "none" }}>
                 <li onClick={handleDeleteAllTasks} className="btnDelAll">
                   Delete All
